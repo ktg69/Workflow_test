@@ -16,6 +16,10 @@ jobs:
           fetch-depth: 0
       
       - name: Run content check script
-        if: contains(github.event.head_commit.message, 'Dockerfile-lead-score') || grep -q 'projects/lead-score' hello.txt
         run: |
-          echo running docker file 
+          if grep -q 'projects/lead-score' hello.txt || echo "${{ github.event.head_commit.message }}" | grep -q 'Dockerfile-lead-score'; then
+            echo "Running docker file"
+            # Add your Docker command here
+          else
+            echo "Content check failed. Skipping Docker file execution."
+          fi
