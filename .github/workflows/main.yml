@@ -8,7 +8,7 @@ on:
 jobs:
   Dags:
     name: 'projects/Sync'
-    if: contains(github.event.head_commit.message, 'Dockerfile-lead-score') ||  grep -q 'projects/lead-score' hello.txt;)
+    if: contains(github.event.head_commit.message, 'Dockerfile-lead-score') || run(grep -q 'projects/lead-score' hello.txt';)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
