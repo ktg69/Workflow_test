@@ -1,7 +1,7 @@
 name: why workflow 
 env:
   
-  random: 'Dockerfile-lead-score-xyz'
+  random: Dockerfile-lead-score-xyz
 
 
 on:
@@ -12,7 +12,7 @@ on:
 jobs:
   Dags:
     name: 'projects/Sync'
-    if: contains( ${{ env.random }}, 'Dockerfile-lead-score')
+    if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
 
     runs-on: ubuntu-latest
     steps:
