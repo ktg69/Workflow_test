@@ -10,4 +10,7 @@ jobs:
     name: 'projects/Sync'
     if: contains(check_changed_files('hello.txt'), 'projects/lead-score')
       echo running docker file 
-          
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0      
