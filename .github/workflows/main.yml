@@ -1,4 +1,4 @@
-name: why workflow 
+name: why workflow
 
 on:
   push:
@@ -9,8 +9,11 @@ jobs:
   Dags:
     name: 'projects/Sync'
     if: contains(check_changed_files('hello.txt'), 'projects/lead-score')
-      echo running docker file 
-  steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0      
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running Docker file
+        run: echo "running docker file"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
