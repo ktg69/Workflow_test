@@ -1,0 +1,13 @@
+name: why workflow 
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  Dags:
+    name: 'projects/Sync'
+    if: contains(check_changed_files('hello.txt'), 'projects/lead-score')
+      echo running docker file 
+          
