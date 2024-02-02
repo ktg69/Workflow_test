@@ -1,4 +1,7 @@
 name: why workflow 
+env:
+  random: Dockerfile-lead-score-xyz
+
 
 on:
   push:
@@ -8,7 +11,7 @@ on:
 jobs:
   Dags:
     name: 'projects/Sync'
-    if: contains(github.event.head_commit.message, 'Dockerfile-lead-score') || run('grep -q projects/lead-score hello.txt')
+    if: contains( ${{ env.random }}, 'Dockerfile-lead-score')
 
     runs-on: ubuntu-latest
     steps:
