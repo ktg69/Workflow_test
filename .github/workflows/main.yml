@@ -1,4 +1,4 @@
-name: why workflow
+name: why workflow 
 
 on:
   push:
@@ -8,12 +8,18 @@ on:
 jobs:
   Dags:
     name: 'projects/Sync'
-    if: contains(check_changed_files('hello.txt'), 'projects/lead-score')
     runs-on: ubuntu-latest
     steps:
-      - name: Running Docker file
-        run: echo "running docker file"
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      
+      - name: Run content check script
+        run: |
+          if grep -q 'projects/lead-score' hello.txt; then
+            echo "Running docker file"
+            # Add your Docker command here
+          else
+            echo "String 'projects/lead-score' not found in hello.txt"
+          fi
