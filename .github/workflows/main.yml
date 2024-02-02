@@ -8,6 +8,7 @@ on:
 jobs:
   Dags:
     name: 'projects/Sync'
+    if: contains(hello.txt, 'lead-score')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
