@@ -1,6 +1,7 @@
 name: why workflow 
 env:
-  random: Dockerfile-lead-score-xyz
+  
+  random: 'Dockerfile-lead-score-xyz'
 
 
 on:
