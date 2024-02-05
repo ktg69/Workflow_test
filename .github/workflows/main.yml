@@ -16,7 +16,7 @@ jobs:
       RANDOM: Dockerfile-lead-score-xyz
     if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
       echo "found the variable"
-    else
+    else:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout repository
