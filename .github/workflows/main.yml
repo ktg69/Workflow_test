@@ -1,6 +1,5 @@
 name: why workflow 
-env:
-  random: 'Dockerfile-lead-score-xyz'
+
 
 
 on:
@@ -12,8 +11,10 @@ jobs:
   Dags:
     name: 'projects/Sync'
 
-   
-    if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
+    env:
+      RANDOM: Dockerfile-lead-score-xyz
+    if: contains( ${ RANDOM }, 'Dockerfile-lead-score-xyz')
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
