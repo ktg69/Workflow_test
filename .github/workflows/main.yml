@@ -1,7 +1,4 @@
 name: why workflow 
-
-
-
 on:
   push:
     branches:
@@ -15,7 +12,7 @@ jobs:
         variable: ['Dockerfile-lead-score-xyz']
     env:
       RANDOM: Dockerfile-lead-score-xyz
-    if: contains( ${{ matrix.variable}} , 'Dockerfile-lead-score-xyz')
+    if: contains(  'Dockerfile-lead-score-xyz',${{ matrix.variable}})
 
     runs-on: ubuntu-latest
     steps:
