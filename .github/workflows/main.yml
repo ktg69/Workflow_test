@@ -10,10 +10,12 @@ on:
 jobs:
   Dags:
     name: 'projects/Sync'
-
+    strategy:
+      matrix:
+        variable: ['Dockerfile-leadscore-xyz']
     env:
       RANDOM: Dockerfile-lead-score-xyz
-    if: contains(  RANDOM , 'Dockerfile-lead-score-xyz')
+    if: contains( ${{ matrix.variable}} , 'Dockerfile-lead-score-xyz')
 
     runs-on: ubuntu-latest
     steps:
