@@ -12,22 +12,23 @@ jobs:
   Dags:
     name: 'projects/Sync'
 
-    # env:
-    #   RANDOM: Dockerfile-lead-score-xyz
-    # if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      
-      - name: Run content check script
-        run: |
-          if grep -q 'projects/lead-score' hello.txt || echo "${{ github.event.head_commit.message }}" | grep -q 'Dockerfile-lead-score'; then
-            echo "Running docker file"
-            # Add your Docker command here
-          else
-            echo "Content check failed. Skipping Docker file execution."
-          fi
+    env:
+      RANDOM: Dockerfile-lead-score-xyz
+    if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
+      echo "found the variable"
+    else
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        
+        - name: Run content check script
+          run: |
+            if grep -q 'projects/lead-score' hello.txt || echo "${{ github.event.head_commit.message }}" | grep -q 'Dockerfile-lead-score'; then
+              echo "Running docker file"
+              # Add your Docker command here
+            else
+              echo "Content check failed. Skipping Docker file execution."
+            fi
