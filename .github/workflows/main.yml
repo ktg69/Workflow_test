@@ -12,9 +12,9 @@ jobs:
   Dags:
     name: 'projects/Sync'
 
-    env:
-      RANDOM: Dockerfile-lead-score-xyz
-    if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
+    # env:
+    #   RANDOM: Dockerfile-lead-score-xyz
+    # if: contains( ${{ env.random }}, 'Dockerfile-lead-score-xyz')
 
     runs-on: ubuntu-latest
     steps:
