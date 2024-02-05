@@ -13,7 +13,7 @@ jobs:
 
     env:
       RANDOM: Dockerfile-lead-score-xyz
-    if: contains(  env.RANDOM , 'Dockerfile-lead-score-xyz')
+    if: contains(  ${{env.RANDOM}} , 'Dockerfile-lead-score-xyz')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
